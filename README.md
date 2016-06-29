@@ -23,7 +23,10 @@ BASE16_PATH="$HOME/.config/base16-shell
 
 Edit your `~/.bashrc/ or `/.profiles` file to add the following line
 
-
+```
+export COLOR_PATH="$HOME/.config/Color"
+[[ -f "$COLOR_PATH/color.sh" ]] && source "$COLOR_PATH/color.sh" && load_color
+```
 
 #Usage
 
@@ -46,6 +49,4 @@ color list
 ```
 
 Just the `color` with no arguments will give you the current scheme and background.
-
-
 
