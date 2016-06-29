@@ -62,6 +62,32 @@ SCHEME="tomorrow"' > $CONFIG_FILE
  
 }
 
+#
+# Sources the base 16 scheme file based on the current 
+# SCHEME and BACKGROUND values.
+#
+function source_base16()
+{
+    base16_file="${BASE16_PATH}/base16-${SCHEME}.${BACKGROUND}.sh"
+    if [[ -f "$base16_file" ]]
+    then
+        source "$base16_file"
+        return 0
+    fi
+    return 1
+}
+
+
+#
+# Updates the current config file with
+# new SCHEME and BACKGROUND
+#
+function update_config()
+{
+    gsed -i "/BACKGROUND/ s/=.*/=\"$BACKGROUND\"/; \
+        /SCHEME/ s/=.*/=\"$SCHEME\"/" "$CONFIG_FILE"
+}
+
 
 #
 # Entry script to color.
@@ -83,14 +109,33 @@ function color()
     if [[ $1 == "list" ]]
     then
         list_all
+        return 0
     elif [[ $1 == "help" ]]
     then
         color_help
+        return 0
+    elif [[ $# -eq 1 ]] 
+    then
+        SCHEME="$1"
+    elif [[ $# -eq 2 ]]
+    then
+        SCHEME="$1"
+        BACKGROUND="$2"
     else
         # 
         # Prints the current scheme and background if nothing is specified.
         #
         echo "Current Scheme : $SCHEME"
         echo "Current Background : $BACKGROUND"
+        return 0
+    fi
+
+    source_base16
+    if [[ $? -eq 0 ]]
+    then
+        update_config
+    else
+        echo "Unknown scheme or background"
+        list_all
     fi 
 }
