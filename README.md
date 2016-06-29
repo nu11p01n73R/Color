@@ -4,7 +4,9 @@
 
 #Requirements
 
-The `color` is based on [Base16 shell project](https://github.com/chriskempson/base16-shell). Clone this project. Read installation steps from the github repo [here](https://github.com/chriskempson/base16-shell). The `~/.bashrc` changes are not required for Base16 as `color` will take care of it.
+The `color` is based on [Base16 shell project](https://github.com/chriskempson/base16-shell). 
+Clone this project. Read installation steps from the github repo [here](https://github.com/chriskempson/base16-shell). 
+The `~/.bashrc` changes are not required for Base16 as `color` will take care of it.
 
 
 #Installation
@@ -21,7 +23,7 @@ Edit `color.sh` file to the correct directory location of Base16
 BASE16_PATH="$HOME/.config/base16-shell
 ```
 
-Edit your `~/.bashrc/ or `/.profiles` file to add the following line
+Edit your `~/.bashrc/` or `/.profiles` file to add the following line
 
 ```
 export COLOR_PATH="$HOME/.config/Color"
