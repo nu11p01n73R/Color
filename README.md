@@ -6,7 +6,7 @@
 
 The `color` is based on [Base16 shell project](https://github.com/chriskempson/base16-shell). 
 
-Clone the project. Read installation steps from the github repo [here](https://github.com/chriskempson/base16-shell). 
+Clone the project. Read installation steps from the github repo [here](https://github.com/chriskempson/base16-shell#installation). 
 
 The `~/.bashrc` changes are not required for Base16 as `color` will take care of it.
 
