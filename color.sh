@@ -5,10 +5,11 @@
 # Location of base16 shell files.
 #
 BASE16_PATH="$HOME/programs/shell/base16-shell"
+
 #
 # Location of config file.
 #
-CONFIG_FILE="./config"
+CONFIG_FILE="$COLOR_PATH/config"
 
 #
 # List all the available colors in the format
@@ -90,10 +91,48 @@ function update_config()
 
 
 #
+# Runs sanitiy checks for the existance of
+# COLOR_PATH Required for config path location.
+# BASE16_PATH 
+#
+function sanity_checks()
+{
+    if [[ -z $COLOR_PATH ]]
+    then
+        echo "COLOR_PATH is not configured correctly"
+        return 1
+    fi
+
+    if [[ ! -d $BASE16_PATH ]]
+    then
+        echo "Base16 not found at  $BASE16_PATH"
+        return 1
+    fi
+    return 0
+}
+
+#
+# Load the current color schemes from config file.
+#
+function load_color()
+{
+    source "$CONFIG_FILE"
+    source_base16
+    return 0
+}
+
+#
 # Entry script to color.
 #
 function color()
 {
+    
+    sanity_checks
+    if [[ $? -eq 1 ]] 
+    then
+        return 1
+    fi
+
 
     if [[ ! -f "$CONFIG_FILE" ]]
     then
