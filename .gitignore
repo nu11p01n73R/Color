@@ -1,2 +1,5 @@
 # Ignore vim files
 *.sw[op]
+
+# Ignore config file
+config
