@@ -3,6 +3,6 @@
 cat <<EOF 
 function color() 
 {
-        bash "${C_PATH}/helpers.sh" "\$1"
+        bash "${COLOR_PATH}/helpers.sh" "\$1"
 }
 EOF

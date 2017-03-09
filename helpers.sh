@@ -9,7 +9,7 @@ LINK_FILE="$HOME/.color"
 #
 function list_all()
 { 
-        scheme_files="${B_PATH}/scripts/*.sh"
+        scheme_files="${BASE16_SHELL}/scripts/*.sh"
         for file in $scheme_files
         do
                 get_color_name "$file"
@@ -18,12 +18,12 @@ function list_all()
 
 function get_color_name()
 {
-        echo -e $1 | sed "s#${B_PATH}/scripts/base16-\([^.]*\).sh#\\1#"
+        echo -e $1 | sed "s#${BASE16_SHELL}/scripts/base16-\([^.]*\).sh#\\1#"
 }
 
 function link_scheme()
 {
-        scheme_file="${B_PATH}/scripts/base16-$1.sh"
+        scheme_file="${BASE16_SHELL}/scripts/base16-$1.sh"
         if [[ ! -f "$scheme_file" ]]
         then
                echo "Scheme file not found" 
@@ -36,6 +36,11 @@ function link_scheme()
 function load_scheme()
 {
         link_scheme $1 && source "$LINK_FILE"
+}
+
+function reload_scheme()
+{
+        source "$LINK_FILE"
 }
 
 function current_scheme()
@@ -53,7 +58,7 @@ function current_scheme()
 
 function demo()
 {
-        scheme_files="${B_PATH}/scripts/*.sh"
+        scheme_files="${BASE16_SHELL}/scripts/*.sh"
         for file in $scheme_files
         do
                 echo -n "Scheme : "
@@ -69,6 +74,9 @@ then
 elif [[ $1 == "demo" ]]
 then
         demo
+elif [[ $1 == "reload" ]]
+then
+        reload_scheme
 elif [[ ! -z $1 ]] 
 then
         load_scheme $1
