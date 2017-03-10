@@ -2,6 +2,8 @@
 
 `color` is a simple utility which helps to change the base 16 terminal color schemes on the go.
 
+![screenshot](screenshot.png)
+
 #Requirements
 
 The `color` is based on [Base16 shell project](https://github.com/chriskempson/base16-shell). 
