@@ -1,4 +1,4 @@
-#!/usr/loca/bin/bash
+#!/usr/local/bin/bash
 
 LINK_FILE="$HOME/.color"
 
@@ -40,7 +40,7 @@ function load_scheme()
 
 function reload_scheme()
 {
-        source "$LINK_FILE"
+        [[ -f "$LINK_FILE" ]] && source "$LINK_FILE"
 }
 
 function current_scheme()
