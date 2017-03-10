@@ -58,3 +58,16 @@ $ color demo
 
 Just the `color` with no arguments will give you the current scheme and background.
 
+#Vim color schemes
+
+To change the vim color schemes as install (base16-vim)[https://github.com/chriskempson/base16-vim]
+using your package manager.
+
+Add the following in your `.vimrc`
+
+```
+if filereadable(expand("~/.vim_background"))
+        let base16colorspace=256
+        source ~/.vim_background
+endif
+```

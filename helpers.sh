@@ -35,12 +35,17 @@ function link_scheme()
 
 function load_scheme()
 {
-        link_scheme $1 && source "$LINK_FILE"
+        link_scheme $1 && source "$LINK_FILE" && change_vim_scheme $1
 }
 
 function reload_scheme()
 {
         [[ -f "$LINK_FILE" ]] && source "$LINK_FILE"
+}
+
+function change_vim_scheme()
+{
+        echo "colorscheme base16-$1" > "$HOME/.vim_background"
 }
 
 function current_scheme()
