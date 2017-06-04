@@ -8,24 +8,26 @@
 
 The `color` is based on [Base16 shell project](https://github.com/chriskempson/base16-shell). 
 
-Clone the project. Read installation steps from the github repo [here](https://github.com/chriskempson/base16-shell#installation). 
-
-The `~/.bashrc` changes are not required for Base16 as `color` will take care of it.
-
-
 #Installation
 
-Clone the repo
+First, we need to clone the Base16 project
 
 ```
-$ git clone https://github.com/nu11p01n73R/Color ~/.Color
+$ git clone https://github.com/chriskempson/base16-shell ~/.base16-shell
+```
+
+
+Clone the Color repo
+
+```
+$ git clone https://github.com/nu11p01n73R/Color ~/.ColorUtil
 ```
 
 Add the following in your `.bashrc`
 
 ```
-export BASE16_SHELL="~/.base16-shell/"
-export COLOR_PATH="~/.Color/"
+export BASE16_SHELL="$HOME/.base16-shell/"
+export COLOR_PATH="$HOME/.ColorUtil/"
 eval "$(bash $COLOR_PATH/color.sh)" && color reload
 ```
 
